@@ -42,10 +42,10 @@ const Expenses = () => {
     <table id='expenses-table' className='table'>
       <thead>
         <tr>
+          <th>Date</th>
           <th>Merchant</th>
           <th>Amount</th>
           <th>Description</th>
-          <th>Date</th>
           <th>Category</th>
           <th>Status</th>
         </tr>
@@ -55,11 +55,11 @@ const Expenses = () => {
         {expenses &&
           expenses.map((expense: ExpenseI) => (
             <tr key={expense.id}>
+              <td>{convertDatetoString(expense.date)}</td>
               <td>{expense.merchant}</td>
               <td>{formatter.format(expense.amount)}</td>
-              <td>{expense.description}</td>
-              <td>{convertDatetoString(expense.date)}</td>
               <td>{expense.category}</td>
+              <td>{expense.description}</td>
               <td>{expense.status}</td>
             </tr>
           ))}
